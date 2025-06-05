@@ -6,11 +6,11 @@ load_dotenv()
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
-def llm_func(input1):
+def llm_func(input1:str) -> str:
     result = llm.invoke(input1)
     return result.content
 
-def upper_string(input2):
+def upper_string(input2: str) -> str:
     result = input2.upper()
     return result
 
@@ -25,8 +25,12 @@ workflow.set_finish_point("upper_string")
 
 app = workflow.compile()
 
-query = "Who is the PM of india"
-print(app.invoke(query))
+query = input()
+try:
+    output = app.invoke(query)
+    print("Final Output:\n", output)
+except Exception as e:
+    print("Error occurred:", e)
 
 try:
     print(app.get_graph().draw_ascii())
