@@ -6,3 +6,5 @@ langchain-google-genai
 python-dotenv
 langchain_huggingface
 langgraph
+ipython
+grandalf
