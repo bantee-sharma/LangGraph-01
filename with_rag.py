@@ -18,6 +18,7 @@ chunks = text_splitter.split_documents(docs)
 
 embedd = HuggingFaceEmbeddings()
 db = FAISS.from_documents(chunks,embedd)
+
 retriver = db.as_retriever(search_type="similarity",kwargs={"k":3})
 query = "What is sql"
 retriver_docs = retriver.invoke(query)
