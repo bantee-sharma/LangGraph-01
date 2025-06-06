@@ -15,6 +15,7 @@ docs = loader.lazy_load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=100)
 chunks = text_splitter.split_documents(docs)
+
 embedd = HuggingFaceEmbeddings()
 db = FAISS.from_documents(chunks,embedd)
 retriver = db.as_retriever(search_type="similarity",kwargs={"k":3})
