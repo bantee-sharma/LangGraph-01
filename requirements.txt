@@ -8,3 +8,4 @@ langchain_huggingface
 langgraph
 ipython
 grandalf
+langchain-community
