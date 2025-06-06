@@ -10,3 +10,5 @@ ipython
 grandalf
 langchain-community
 pypdf
+pymupdf
+faiss-cpu
