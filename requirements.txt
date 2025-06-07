@@ -12,3 +12,4 @@ langchain-community
 pypdf
 pymupdf
 faiss-cpu
+duckduckgo-search
