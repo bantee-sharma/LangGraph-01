@@ -30,3 +30,7 @@ def divide(a:int,b:int)->float:
 search = DuckDuckGoSearchRun()
 
 tools = [add, multiply, divide, search]
+
+llm_with_tools = llm.bind_tools(tools=tools)
+
+print(llm_with_tools.invoke("trending news in india"))
