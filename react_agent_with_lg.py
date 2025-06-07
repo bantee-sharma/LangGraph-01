@@ -56,4 +56,6 @@ react_graph = builder.compile()
 
 query = [HumanMessage(content="What is 2 times of naranger modi age?")]
 res = react_graph.invoke({"messages":query})
-print(res)
+
+for i in res["messages"]:
+    i.pretty_print()
