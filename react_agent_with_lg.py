@@ -1,0 +1,33 @@
+from langchain_google_genai import  ChatGoogleGenerativeAI
+from dotenv import load_dotenv
+from langchain_community.tools import DuckDuckGoSearchRun
+
+
+load_dotenv()
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+
+def add(a:int,b:int)->int:
+    '''add a and b
+    args:
+         a: first number
+         b: second number'''
+    return a+b
+
+def multiply(a:int,b:int)->int:
+    '''multiply a and b
+    args:
+         a: first number
+         b: second number'''
+    return a*b
+
+def add(a:int,b:int)->float:
+    '''Divide a and b
+    args:
+         a: first number
+         b: second number'''
+    return a/b
+
+search = DuckDuckGoSearchRun()
+
+tools = 
+tools = [add, multiply, divide, search]
