@@ -21,7 +21,7 @@ def multiply(a:int,b:int)->int:
     return a*b
 
 def add(a:int,b:int)->float:
-    '''Divide a and b
+    '''divide a and b
     args:
          a: first number
          b: second number'''
@@ -29,5 +29,5 @@ def add(a:int,b:int)->float:
 
 search = DuckDuckGoSearchRun()
 
-tools = 
+
 tools = [add, multiply, divide, search]
