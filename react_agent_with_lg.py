@@ -39,8 +39,10 @@ print(llm_with_tools.invoke("trending news in india"))
 
 system_msg = SystemMessage(content="You are a helpful assistant tasked with using search and performing arithmetic on a set of inputs.")
 
-def reasoner(state:MessagesState):
-    return {"message":[llm_with_tools.invoke(system_msg) + state["messages"]]}
+def reasoner(state: MessagesState):
+    messages = [system_msg] + state["messages"]
+    response = llm_with_tools.invoke(messages)
+    return {"messages": state["messages"] + [response]}
 
 builder = StateGraph(MessagesState)
 builder.add_node("reasoner",reasoner)
@@ -53,5 +55,5 @@ react_graph = builder.compile()
 #print(react_graph.get_graph().draw_ascii())
 
 query = [HumanMessage(content="What is 2 times of naranger modi age?")]
-res = react_graph.invoke({"message":query})
+res = react_graph.invoke({"messages":query})
 print(res)
